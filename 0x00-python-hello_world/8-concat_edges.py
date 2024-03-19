@@ -1,5 +1,5 @@
 #!/usr/bin/python3
 str = "Python is an interpreted, interactive, object-oriented programming\
  language that combines remarkable power with-8 very clear syntax"
-str = str[39:65] + " " + str[108:113] + " " + str[0:7]
+str = str.replace(str, "object-oriented programming with Python")
 print(str)
