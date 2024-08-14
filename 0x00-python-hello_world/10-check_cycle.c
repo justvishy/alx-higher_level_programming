@@ -10,22 +10,21 @@
 
 int check_cycle(listint_t *list)
 {
-	listint_t *current = list, *prev_node = NULL;
+	listint_t *stop, *go;
 
-	while (current)
+	if (list == NULL || list->next == NULL)
+		return (0);
+
+	stop = list;
+	go = list->next;
+
+	while (stop && go && go->next)
 	{
-		prev_node = list;
-		while (1)
-		{
-			if (current->next == prev_node)
-				return (1);
+		if (stop == go)
+			return (1);
 
-			if (prev_node == current)
-				break;
-
-			prev_node = prev_node->next;
-		}
-		current = current->next;
+		stop = stop->next;
+		go = go->next->next;
 	}
 	return (0);
 }
