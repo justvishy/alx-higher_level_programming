@@ -1,5 +1,4 @@
 #include "lists.h"
-#include <stdlib.h>
 
 /**
  * check_cycle - prototype function
@@ -10,22 +9,22 @@
 
 int check_cycle(listint_t *list)
 {
-	listint_t *a;
-	listint_t *b;
+	listint_t *cur = list, *prev = NULL;
 
-	if (list == NULL || list->next == NULL)
-		return (0);
-
-	a = b;
-	b = list->next;
-
-	while (a && b && b->next)
+	while (cur)
 	{
-		if (a == b)
-			return (1);
+		prev = list;
+		while (1)
+		{
+			if (cur->next == prev)
+				return (1);
 
-		a = a->next;
-		b = b->next->next;
+			if (prev == cur)
+				break;
+
+			prev = prev->next;
+		}
+		cur = cur->next;
 	}
 	return (0);
 }
