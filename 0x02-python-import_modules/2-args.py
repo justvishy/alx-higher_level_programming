@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-f __name__ == "__main__":
+if __name__ == "__main__":
     from sys import argv
 
     # Number of arguments
